@@ -12,7 +12,6 @@ pipeline {
             steps {
                 script {
                     dir('terraform') {
-                        sh "terraform destroy"
                     }
                 }
             }
@@ -22,6 +21,7 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh "terraform init"
+                        sh "terraform destroy"
                         sh "terraform apply -auto-approve"
                     }
                 }
